@@ -1,0 +1,39 @@
+name = "cloudflare-docker"
+compatibility_date = "2023-12-01"
+
+[dev]
+ip = "0.0.0.0"
+port = 8787
+local_protocol = "http"
+
+[env.vars]
+CUSTOM_DOMAIN = "libcuda.so"
+
+[env.dev.vars]
+MODE = "debug"
+TARGET_UPSTREAM = "https://registry-1.docker.io"
+CUSTOM_DOMAIN = "exmaple.com"
+
+[env.production]
+name = "cloudflare-docker"
+# routes = [
+#   { pattern = "docker.dl20052006.ggff.net", custom_domain = true },
+#   { pattern = "quay.dl20052006.ggff.net", custom_domain = true },
+#   { pattern = "gcr.dl20052006.ggff.net", custom_domain = true },
+#   { pattern = "k8s-gcr.dl20052006.ggff.net", custom_domain = true },
+#   { pattern = "k8s.dl20052006.ggff.net", custom_domain = true },
+#   { pattern = "ghcr.dl20052006.ggff.net", custom_domain = true },
+#   { pattern = "cloudsmith.dl20052006.ggff.net", custom_domain = true },
+# ]
+
+[env.production.vars]
+MODE = "production"
+TARGET_UPSTREAM = ""
+
+[env.staging]
+name = "cloudflare-docker-staging"
+# route = { pattern = "docker-staging.dl20052006.ggff.net", custom_domain = true }
+
+[env.staging.vars]
+MODE = "staging"
+TARGET_UPSTREAM = ""
